@@ -2,44 +2,55 @@
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace EkaWebAPI
+namespace EkaWebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public class SongsController : ControllerBase
     {
         // GET: api/<SongsController>
+
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<string> Names()
         {
             return new string[] { "value1", "value2" };
         }
 
         // GET api/<SongsController>/5
         [HttpGet("{id}")]
-        public byte[] Get(long id)
+        public FileContentResult Get(long id)
         {
+            //  byte[]
             // UgotItALL
-            
+
             string path = @"C:\temp\UgotItALL.wav";
-            System.IO.FileInfo info = new FileInfo(path);
+            FileInfo info = new FileInfo(path);
             byte[] bytess = new byte[info.Length];
 
-            bytess= System.IO.File.ReadAllBytes(path);
+            bytess = System.IO.File.ReadAllBytes(path);
             // File f = new File(bytess, "audio/mpeg,UgotItALL.wav");
+            /*
+             return new FileContentResult(attachment.File, 
+        MimeTypeMap.GetMimeType(attachment.FileExtension))
+    {
+        FileDownloadName = $"{attachment.NomeFile}.{attachment.FileExtension}"
+    };
+             */
 
-            return new MemoryStream(10).GetBuffer();
-            
-        }  
+            return File(bytess, "audio/mpeg","UgotItALL.wav");
+
+            //return new MemoryStream(10).GetBuffer();
+
+        }
 
         // GET api/<SongsController>/5
         [HttpGet("{id}/{fileid}")]
-        public ActionResult GetFile(long id,string fileid)
+        public ActionResult GetFile(long id, string fileid)
         {
             // UgotItALL
 
             string path = @"C:\temp\UgotItALL.wav";
-            System.IO.FileInfo info = new FileInfo(path);
+            FileInfo info = new FileInfo(path);
             byte[] bytess = new byte[info.Length];
 
             //System.IO.File.WriteAllBytes(path, bytess);
