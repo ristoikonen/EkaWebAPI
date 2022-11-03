@@ -1,4 +1,6 @@
-﻿namespace EkaWebAPI.Models
+﻿using Newtonsoft.Json;
+
+namespace EkaWebAPI.Models
 {
     public class Song
     {
@@ -7,5 +9,10 @@
         public DateTime DateCreated { get; set; }
 
         public byte[]? Data { get; set; }
+
+        public override string ToString()
+        {
+            return JsonConvert.SerializeObject(this);
+        }
     }
 }

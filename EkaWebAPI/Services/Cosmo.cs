@@ -7,10 +7,11 @@ using Microsoft.Azure.Cosmos;
 using System.Drawing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System.Threading.Tasks.Sources;
 
 namespace EkaWebAPI.Services
 {
-    class Cosmo
+    public class Cosmo
     {
         // The Azure Cosmos DB endpoint for running this sample.
         private static readonly string EndpointUri = "https://localhost:8081"; //Configuration.GetSection("EndPointUri").Value; 
@@ -77,13 +78,17 @@ namespace EkaWebAPI.Services
             await this.CreateDatabaseAsync();
             await this.CreateContainerAsync();
             await this.ScaleContainerAsync();
-            /*
+
             await this.AddItemsToContainerAsync();
+
+            /*
             await this.QueryItemsAsync();
             await this.ReplaceFamilyItemAsync();
             await this.DeleteFamilyItemAsync();
             */
+
             await this.DeleteDatabaseAndCleanupAsync();
+
         }
         // </GetStartedDemoAsync>
 
@@ -135,7 +140,7 @@ namespace EkaWebAPI.Services
         }
         // </ScaleContainerAsync>
 
-        /*
+
 
         // <AddItemsToContainerAsync>
         /// <summary>
@@ -143,7 +148,21 @@ namespace EkaWebAPI.Services
         /// </summary>
         private async Task AddItemsToContainerAsync()
         {
-            // Create a family object for the Andersen family
+            //TODO Continue by creating a Song for JSON output!
+            // Check thye family class in microsofts sample project.
+
+            //Song s = new Song
+            //{
+
+                
+
+            //};
+
+
+
+
+
+            /*
             Family andersenFamily = new Family
             {
                 Id = "Andersen.1",
@@ -235,12 +254,14 @@ namespace EkaWebAPI.Services
                 // Note that after creating the item, we can access the body of the item with the Resource property off the ItemResponse. We can also access the RequestCharge property to see the amount of RUs consumed on this request.
                 Console.WriteLine("Created item in database with id: {0} Operation consumed {1} RUs.\n", wakefieldFamilyResponse.Resource.Id, wakefieldFamilyResponse.RequestCharge);
             }
+            */
+
+
         }
 
-
-
-
         // </AddItemsToContainerAsync>
+
+         /*
 
         // <QueryItemsAsync>
         /// <summary>

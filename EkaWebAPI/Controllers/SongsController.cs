@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using EkaWebAPI.Services;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -11,8 +12,14 @@ namespace EkaWebAPI.Controllers
         // GET: api/<SongsController>
 
         [HttpGet]
-        public IEnumerable<string> Names()
+        public async Task<IEnumerable<string>> Names()
         {
+
+            Cosmo cos = new Cosmo();
+            await cos.GetStartedDemoAsync();
+
+
+
             return new string[] { "value1", "value2" };
         }
 
