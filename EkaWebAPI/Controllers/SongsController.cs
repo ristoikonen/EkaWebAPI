@@ -28,12 +28,12 @@ namespace EkaWebAPI.Controllers
             //  byte[]
             // UgotItALL
 
-            string path = @"C:\temp\UgotItALL.wav";
+            string path = @"C:\temp\ugotItAll.wav";
             FileInfo info = new FileInfo(path);
             byte[] bytess = new byte[info.Length];
 
             bytess = System.IO.File.ReadAllBytes(path);
-            // File f = new File(bytess, "audio/mpeg,106.mp3");
+            // File f = new File(bytess, "audio/mpeg,ugotItAll.wav");
             /*
              return new FileContentResult(attachment.File, 
         MimeTypeMap.GetMimeType(attachment.FileExtension))
@@ -42,7 +42,7 @@ namespace EkaWebAPI.Controllers
     };
              */
 
-            return File(bytess, "audio/mpeg","106.mp3");
+            return File(bytess, "audio/mpeg", "ugotItAll.wav");
 
             //return new MemoryStream(10).GetBuffer();
 
