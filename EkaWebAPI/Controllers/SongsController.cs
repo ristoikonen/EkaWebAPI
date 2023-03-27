@@ -18,8 +18,6 @@ namespace EkaWebAPI.Controllers
             Cosmo cos = new Cosmo();
             await cos.GetStartedDemoAsync();
 
-
-
             return new string[] { "value1", "value2" };
         }
 
@@ -35,7 +33,7 @@ namespace EkaWebAPI.Controllers
             byte[] bytess = new byte[info.Length];
 
             bytess = System.IO.File.ReadAllBytes(path);
-            // File f = new File(bytess, "audio/mpeg,UgotItALL.wav");
+            // File f = new File(bytess, "audio/mpeg,106.mp3");
             /*
              return new FileContentResult(attachment.File, 
         MimeTypeMap.GetMimeType(attachment.FileExtension))
@@ -44,7 +42,7 @@ namespace EkaWebAPI.Controllers
     };
              */
 
-            return File(bytess, "audio/mpeg","UgotItALL.wav");
+            return File(bytess, "audio/mpeg","106.mp3");
 
             //return new MemoryStream(10).GetBuffer();
 
